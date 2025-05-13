@@ -46,7 +46,7 @@ internal static class LogManager {
                 }
             }
 
-            message = message.Substring(0, index) + obj + message.Substring(index + term);
+            message = message[..index] + obj + message[(index + term)..];
             arrayIndex++;
         }
 
