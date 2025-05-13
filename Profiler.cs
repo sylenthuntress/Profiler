@@ -39,6 +39,7 @@ public class Profiler : BaseUnityPlugin {
         if (startupProfile == null) {
             if (ConfigManager.CreateStartupProfileIfAbsent.Value) {
                 startupProfile = PlatformSystems.saveSystem.CreateProfile(RoR2Application.cloudStorage, startupProfileName);
+                LogManager.Warning("Profile {} not found", startupProfile);
             }
         }
         
