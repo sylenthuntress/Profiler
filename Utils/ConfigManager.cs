@@ -1,6 +1,6 @@
 using BepInEx.Configuration;
 
-namespace Profiler;
+namespace Profiler.Utils;
 
 internal static class ConfigManager {
     public static ConfigEntry<string> StartupProfile { get; private set; }

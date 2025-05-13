@@ -1,8 +1,7 @@
 ﻿using System;
 using BepInEx.Logging;
-using Newtonsoft.Json.Utilities;
 
-namespace Profiler;
+namespace Profiler.Utils;
 
 internal static class LogManager {
     private static ManualLogSource _logSource;

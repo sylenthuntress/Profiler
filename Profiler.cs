@@ -1,4 +1,6 @@
 using BepInEx;
+using Profiler.Features;
+using Profiler.Utils;
 using R2API;
 using Rewired;
 using RoR2;
@@ -21,28 +23,10 @@ public class Profiler : BaseUnityPlugin {
     }
 
     private void OnEnable() {
-        On.RoR2.LocalUserManager.AddUser += AlterDefaultProfile;
+        On.RoR2.LocalUserManager.AddUser += StartupProfileSelector.SelectStartupProfile;
     }
     
     private void OnDisable() {
-        On.RoR2.LocalUserManager.AddUser -= AlterDefaultProfile;
-    }
-    
-    private static void AlterDefaultProfile(On.RoR2.LocalUserManager.orig_AddUser orig, Player player, UserProfile profile) {
-        string startupProfileName = ConfigManager.StartupProfile.Value;
-        if (string.IsNullOrEmpty(startupProfileName)) {
-            orig(player, profile); // The original method
-            return;
-        }
-        
-        UserProfile startupProfile = PlatformSystems.saveSystem.GetProfile(startupProfileName);
-        if (startupProfile == null) {
-            if (ConfigManager.CreateStartupProfileIfAbsent.Value) {
-                startupProfile = PlatformSystems.saveSystem.CreateProfile(RoR2Application.cloudStorage, startupProfileName);
-                LogManager.Warning("Profile {} not found", startupProfile);
-            }
-        }
-        
-        orig(player, startupProfile);
+        On.RoR2.LocalUserManager.AddUser -= StartupProfileSelector.SelectStartupProfile;
     }
 }
