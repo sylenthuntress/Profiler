@@ -37,14 +37,16 @@ internal static class LogManager {
         int arrayIndex = 0;
         foreach (object obj in data) {
             int index = message.IndexOf("{" + arrayIndex + "}", StringComparison.Ordinal);
+            int term = ("{" + arrayIndex + "}").Length;
             if (index == -1) {
                 index = message.IndexOf("{}", StringComparison.Ordinal);
+                term = 2;
                 if (index == -1) {
                     break;
                 }
             }
 
-            message = message.Substring(0, index) + obj + message.Substring(index + 2);
+            message = message.Substring(0, index) + obj + message.Substring(index + term);
             arrayIndex++;
         }
 
