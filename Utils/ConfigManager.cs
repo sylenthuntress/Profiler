@@ -13,7 +13,8 @@ internal static class ConfigManager {
             "StartupProfile",
             null,
             "Which profile to select on startup" +
-            "\n- " + StartupProfileSelector.NameVariable + "parses to the user's username"
+            "\n- " + StartupProfileSelector.NameVariable + "parses to the user's username" +
+            "\n- " + StartupProfileSelector.OriginalVariable + "parses to the oldest save profile"
         );
         
         CreateStartupProfileIfAbsent = config.Bind(

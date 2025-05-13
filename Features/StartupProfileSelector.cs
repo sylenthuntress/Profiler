@@ -1,12 +1,14 @@
+using System.Linq;
 using Profiler.Utils;
+using R2API.Utils;
 using Rewired;
 using RoR2;
 
 namespace Profiler.Features;
 
 internal static class StartupProfileSelector {
-    internal const string NameVariable = "[Username]";
-    internal const string DefaultVariable = "[Default]";
+    internal const string NameVariable = "[username]";
+    internal const string OriginalVariable = "[original]";
     
     public static void SelectStartupProfile(On.RoR2.LocalUserManager.orig_AddUser orig, Player player, UserProfile profile) {
         string startupProfileName = ParseProfileName(ConfigManager.StartupProfile.Value);
@@ -27,6 +29,7 @@ internal static class StartupProfileSelector {
     }
 
     private static string ParseProfileName(string name) {
-        return name.Replace(NameVariable, PlatformSystems.saveSystem.GetPlatformUsernameOrDefault("Nameless Survivor"));
+        return name.Replace(NameVariable, PlatformSystems.saveSystem.GetPlatformUsernameOrDefault("Nameless Survivor"))
+            .Replace(OriginalVariable, PlatformSystems.saveSystem.loadedUserProfiles.First().Key);
     }
 }
