@@ -1,0 +1,12 @@
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/bin/Debug/netstandard2.1/Profiler.deps.json
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/bin/Debug/netstandard2.1/Profiler.dll
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/bin/Debug/netstandard2.1/Profiler.pdb
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/bin/Debug/netstandard2.1/Zio.dll
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.csproj.AssemblyReference.cache
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.GeneratedMSBuildEditorConfig.editorconfig
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.AssemblyInfoInputs.cache
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.AssemblyInfo.cs
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.csproj.CoreCompileInputs.cache
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.csproj.Up2Date
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.dll
+/home/eva/Projects/Mod Development/Risk of Rain 2/Programming/Profiler/obj/Debug/netstandard2.1/Profiler.pdb
