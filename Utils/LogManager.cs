@@ -43,10 +43,8 @@ internal static class LogManager {
                     break;
                 }
             }
-            
-            message = message
-                .Remove(index, index + 1)
-                .Insert(index, obj.ToString());
+
+            message = message.Substring(0, index) + obj + message.Substring(index + 2);
             arrayIndex++;
         }
 

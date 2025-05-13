@@ -22,8 +22,8 @@ internal static class StartupProfileSelector {
         if (startupProfile == null) {
             if (ConfigManager.CreateStartupProfileIfAbsent.Value) {
                 startupProfile = PlatformSystems.saveSystem.CreateProfile(RoR2Application.cloudStorage, startupProfileName);
-                LogManager.Warning("Profile {} not found, creating...", startupProfile);
-            } else LogManager.Warning("Profile {} not found, cannot create, defaulting...", startupProfileName);
+                LogManager.Warning("Profile {} not found, creating...", startupProfileName);
+            } else LogManager.Warning("Profile {} not found. Cannot create; defaulting...", startupProfileName);
         }
         
         orig(player, startupProfile);
