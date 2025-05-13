@@ -1,4 +1,5 @@
 using BepInEx.Configuration;
+using Profiler.Features;
 
 namespace Profiler.Utils;
 
@@ -11,7 +12,8 @@ internal static class ConfigManager {
             "Startup",
             "StartupProfile",
             null,
-            "Which profile to select on startup"
+            "Which profile to select on startup" +
+            "\n- " + StartupProfileSelector.NameVariable + "parses to the user's username"
         );
         
         CreateStartupProfileIfAbsent = config.Bind(

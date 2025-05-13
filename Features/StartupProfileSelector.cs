@@ -4,9 +4,12 @@ using RoR2;
 
 namespace Profiler.Features;
 
-public class StartupProfileSelector { 
+internal static class StartupProfileSelector {
+    internal const string NameVariable = "[Username]";
+    internal const string DefaultVariable = "[Default]";
+    
     public static void SelectStartupProfile(On.RoR2.LocalUserManager.orig_AddUser orig, Player player, UserProfile profile) {
-        string startupProfileName = ConfigManager.StartupProfile.Value;
+        string startupProfileName = ParseProfileName(ConfigManager.StartupProfile.Value);
         if (string.IsNullOrEmpty(startupProfileName)) {
             orig(player, profile); // The original method
             return;
@@ -21,5 +24,9 @@ public class StartupProfileSelector {
         }
         
         orig(player, startupProfile);
+    }
+
+    private static string ParseProfileName(string name) {
+        return name.Replace(NameVariable, PlatformSystems.saveSystem.GetPlatformUsernameOrDefault("Nameless Survivor"));
     }
 }
