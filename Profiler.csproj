@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>SylentHuntress</Authors>
 		<Description>QOL mod for save files. Currently allows you to associate save files with modpacks.</Description>
 		<RepositoryUrl>https://github.com/SylentHuntress/Profiler</RepositoryUrl>
@@ -10,6 +10,10 @@
 		<LangVersion>preview</LangVersion>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<RootNamespace>Profiler</RootNamespace>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://github.com/SylentHuntress/Profiler</PackageProjectUrl>
+		<PackageLicenseUrl>https://mit-license.org/</PackageLicenseUrl>
+		<RepositoryType>GitHub</RepositoryType>
 	</PropertyGroup>
 
 	<ItemGroup>
