@@ -1,0 +1,1 @@
+* Fix NRE when config is empty

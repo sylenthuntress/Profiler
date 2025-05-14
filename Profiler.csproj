@@ -45,6 +45,7 @@
 	<Target Name="BuildRelease" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
 		<Copy SourceFiles="$(BuildDir)/$(TargetFileName)" DestinationFolder="$(SolutionDir)Thunderstore" />
 		<Copy SourceFiles="$(SolutionDir)README.md" DestinationFolder="$(SolutionDir)Thunderstore" />
+		<Copy SourceFiles="$(SolutionDir)CHANGELOG.md" DestinationFolder="$(SolutionDir)Thunderstore" />
 		<Copy SourceFiles="$(SolutionDir)icon.png" DestinationFolder="$(SolutionDir)Thunderstore" />
 		<Copy SourceFiles="$(SolutionDir)LICENSE" DestinationFolder="$(SolutionDir)Thunderstore" />
 		<Exec Command="pwsh –ExecutionPolicy Bypass -Command &quot;&amp; '$(SolutionDir)Build/BuildRelease.ps1' '$(Authors)' '$(AssemblyName)' '$(Version)' '$(RepositoryUrl)' '$(Description)'&quot;" />
