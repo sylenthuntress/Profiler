@@ -8,7 +8,6 @@ using RoR2;
 namespace Profiler;
 
 [BepInPlugin(PluginGUID, PluginName, PluginVersion)] // Metadata
-[BepInDependency(LanguageAPI.PluginGUID)] // Language API
 
 public class Profiler : BaseUnityPlugin {
     public const string PluginGUID = PluginAuthor + "." + PluginName;
