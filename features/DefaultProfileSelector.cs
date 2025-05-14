@@ -45,6 +45,10 @@ internal static class DefaultProfileSelector {
     }
 
     private static string ParseProfileName(string name) {
+        if (string.IsNullOrEmpty(name)) {
+            return name;
+        }
+        
         return name.Replace(NameVariable, PlatformSystems.saveSystem.GetPlatformUsernameOrDefault("Nameless Survivor"))
             .Replace(OriginalVariable, GetFirstProfile().name);
     }
