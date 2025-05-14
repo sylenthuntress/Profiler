@@ -10,18 +10,18 @@ internal static class ConfigManager {
     public static void Init(ConfigFile config) {
         StartupProfile = config.Bind<string>(
             "Startup",
-            "StartupProfile",
+            "DefaultProfile",
             null,
             "Which profile to select on startup." +
-            " " + StartupProfileSelector.NameVariable + " parses to the user's username;" +
-            " " + StartupProfileSelector.OriginalVariable + " parses to the oldest save profile"
+            " " + DefaultProfileSelector.NameVariable + " parses to the user's username;" +
+            " " + DefaultProfileSelector.OriginalVariable + " parses to the oldest save profile"
         );
         
         CreateStartupProfileIfAbsent = config.Bind(
             "Startup",
-            "CreateStartupProfileIfAbsent",
+            "CreateDefaultProfileIfAbsent",
             true,
-            "Create startup profile if absent"
+            "Create default profile on startup if absent"
         );
     }
 }

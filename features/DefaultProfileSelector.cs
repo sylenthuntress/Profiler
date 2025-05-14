@@ -1,16 +1,18 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Profiler.Utils;
-using R2API.Utils;
 using Rewired;
 using RoR2;
+using Zio;
 
 namespace Profiler.Features;
 
-internal static class StartupProfileSelector {
+internal static class DefaultProfileSelector {
     internal const string NameVariable = "[username]";
     internal const string OriginalVariable = "[original]";
     
-    public static void SelectStartupProfile(On.RoR2.LocalUserManager.orig_AddUser orig, Player player, UserProfile userProfile) {
+    public static void SelectDefaultProfile(On.RoR2.LocalUserManager.orig_AddUser orig, Player player, UserProfile userProfile) {
         string startupProfileName = ParseProfileName(ConfigManager.StartupProfile.Value);
         if (string.IsNullOrEmpty(startupProfileName)) {
             LogManager.Info("No startup profile found. Defaulting...");
@@ -44,6 +46,21 @@ internal static class StartupProfileSelector {
 
     private static string ParseProfileName(string name) {
         return name.Replace(NameVariable, PlatformSystems.saveSystem.GetPlatformUsernameOrDefault("Nameless Survivor"))
-            .Replace(OriginalVariable, PlatformSystems.saveSystem.loadedUserProfiles.First().Key);
+            .Replace(OriginalVariable, GetFirstProfile().name);
+    }
+
+    private static UserProfile GetFirstProfile() {
+        UserProfile userProfile = null;
+        DateTime oldestCreationTime = DateTime.Now;
+        foreach (var entry in PlatformSystems.saveSystem.loadedUserProfiles) {
+            UserProfile profile = entry.Value;
+            DateTime creationTime = profile.fileSystem.GetFileEntry(profile.filePath).CreationTime;
+            if (oldestCreationTime.CompareTo(creationTime) < 0) {
+                userProfile = profile;
+                oldestCreationTime = creationTime;
+            }
+        }
+
+        return userProfile;
     }
 }

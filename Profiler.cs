@@ -1,9 +1,6 @@
 using BepInEx;
 using Profiler.Features;
 using Profiler.Utils;
-using R2API;
-using Rewired;
-using RoR2;
 
 namespace Profiler;
 
@@ -22,10 +19,10 @@ public class Profiler : BaseUnityPlugin {
     }
 
     private void OnEnable() {
-        On.RoR2.LocalUserManager.AddUser += StartupProfileSelector.SelectStartupProfile;
+        On.RoR2.LocalUserManager.AddUser += DefaultProfileSelector.SelectDefaultProfile;
     }
     
     private void OnDisable() {
-        On.RoR2.LocalUserManager.AddUser -= StartupProfileSelector.SelectStartupProfile;
+        On.RoR2.LocalUserManager.AddUser -= DefaultProfileSelector.SelectDefaultProfile;
     }
 }
