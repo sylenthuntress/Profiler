@@ -1,0 +1,9 @@
+{
+  "name": "Profiler",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/SylentHuntress/Profiler",
+  "description": "QOL mod for save files. Currently allows you to associate save files with modpacks.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100"
+  ]
+}
