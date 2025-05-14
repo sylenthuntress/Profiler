@@ -8,7 +8,7 @@ internal static class LogManager {
 
     internal static void Init(ManualLogSource logSource) {
         _logSource = logSource;
-        _logSource.LogInfo(Profiler.PluginGUID + "-" + Profiler.PluginVersion + " has loaded!");
+        Info("{}-{} has loaded!");
     }
 
     internal static void Debug(string message) => Debug(message, null);
